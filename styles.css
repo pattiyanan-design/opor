@@ -1,0 +1,624 @@
+/* CSS Variables & Font Declarations */
+:root {
+  --font-family-kanit: 'Kanit', sans-serif;
+  --font-family-inter: 'Inter', sans-serif;
+  --font-family-itim: 'Itim', cursive;
+  --font-family-luckiest-guy: 'Luckiest Guy', cursive;
+  --font-family-gabarito: 'Gabarito', sans-serif;
+
+  --color-blue-light: #e5eeff;
+  --color-footer-blue: #8cd3ff;
+  --color-purple: #caa8e4;
+  --color-purple-dark: #aa60e3;
+  --color-pink: #ffbe00;
+  --color-pink-primary: #ff91c4;
+  --color-black: #0b0b0b;
+  --color-white: #ffffff;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden; /* ป้องกันแถบ Scrollbar แนวนอน */
+  background-color: var(--color-white);
+  font-family: var(--font-family-inter);
+  color: var(--color-black);
+}
+
+/* Container ขยายเต็ม 100% ไม่จำกัดความกว้าง */
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   1. Header / Navbar (Full Width)
+   ========================================= */
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 4vw; /* ใช้ %/vw เพื่อเว้นระยะขอบซ้าย-ขวาอย่างสมดุล */
+  background-color: #f3f7ff;
+}
+
+.nav-logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3vw;
+}
+
+.nav-item {
+  font-family: var(--font-family-gabarito);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-black);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-item:hover {
+  color: var(--color-purple-dark);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-pink-primary);
+  border-radius: 25px;
+  padding: 8px 20px;
+  width: 260px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  font-size: 16px;
+}
+
+.search-icon {
+  font-size: 18px;
+  color: var(--color-pink-primary);
+}
+
+/* =========================================
+   2. Hero Section (Full Width Background)
+   ========================================= */
+.hero-section {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #eef4ff;
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: auto;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text-overlay {
+  position: absolute;
+  left: 6vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.welcome-text {
+  font-family: var(--font-family-luckiest-guy);
+  font-size: clamp(22px, 3vw, 42px);
+  color: #cea7ff;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0px #ffffff;
+}
+
+.main-title {
+  font-family: var(--font-family-luckiest-guy);
+  font-size: clamp(45px, 6.5vw, 100px);
+  color: var(--color-pink-primary);
+  text-shadow: 4px 4px 0px rgba(255, 255, 255, 1), 6px 6px 0px rgba(0,0,0,0.08);
+  line-height: 1;
+  margin-top: -5px;
+}
+/* =========================================
+   3. Content Grid (ขยายเต็มตามขนาดจอ)
+   ========================================= */
+.content-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px 4vw;
+}
+
+.card {
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card-title {
+  font-family: var(--font-family-itim);
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.text-black { color: var(--color-black); }
+.text-purple { color: var(--color-purple-dark); }
+.text-pink { color: var(--color-pink-primary); }
+
+.card-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Schedule Card */
+.card-schedule {
+  background-color: #fff8fa;
+  border: 1px solid #ffe3ed;
+}
+
+.schedule-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.badge-date {
+  font-weight: 700;
+  font-size: 20px;
+  background-color: #e3f2fd;
+  color: #1e88e5;
+  padding: 8px 16px;
+  border-radius: 10px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.badge-date.font-big {
+  font-size: 28px;
+}
+
+.schedule-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.schedule-sub {
+  font-size: 14px;
+  color: #666;
+}
+
+/* =========================================
+   4. Music Section (Full Width)
+   ========================================= */
+.music-section {
+  width: 100%;
+  padding: 10px 4vw 40px 4vw;
+}
+
+.music-container {
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.music-player-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   5. Footer (Full Width)
+   ========================================= */
+.footer {
+  width: 100%;
+  margin-top: auto;
+  background-color: var(--color-footer-blue);
+  color: var(--color-white);
+  padding: 30px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo img {
+  height: 48px;
+  width: auto;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-heading {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.social-icons {
+  height: 32px;
+  width: auto;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.email-icon {
+  width: 38px;
+  height: auto;
+}
+
+.contact-text p {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.email-address {
+  font-weight: 500;
+}
+
+.footer-copyright {
+  font-size: 15px;
+  text-align: right;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
+/* Responsive สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-banner {
+    justify-content: center;
+    margin-top: 25px;
+  }
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-copyright {
+    text-align: center;
+  }
+}
+
+/* Music Player Container */
+.music-player-card {
+  width: 100%;
+  background-color: #ffe3ed;
+  border-radius: 28px;
+  padding: 24px 32px;
+}
+
+.player-heading {
+  font-family: var(--font-family-itim);
+  font-size: 32px;
+  color: var(--color-pink-primary);
+  margin-bottom: 20px;
+}
+
+.player-heading span {
+  font-size: 24px;
+}
+
+.player-body {
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Left Section: Now Playing */
+.now-playing {
+  flex: 1.4;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background-color: transparent;
+}
+
+.album-cover {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(255, 145, 196, 0.2);
+}
+
+.album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-controls-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.song-meta h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b0b0b;
+}
+
+.song-meta p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* Progress Bar Styling */
+.progress-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.progress-box input[type="range"] {
+  flex: 1;
+  height: 6px;
+  accent-color: #ff91c4;
+  cursor: pointer;
+}
+
+/* Control Buttons */
+.control-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.btn-sub {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.btn-sub:hover {
+  opacity: 1;
+}
+
+.btn-main-play {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #ff91c4;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(255, 145, 196, 0.4);
+  transition: transform 0.1s;
+}
+
+.btn-main-play:active {
+  transform: scale(0.95);
+}
+
+.view-all-btn {
+  align-self: flex-start;
+  background-color: #ff91c4;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Right Section: Up Next Playlist */
+.up-next-card {
+  flex: 1;
+  background-color: #fff5f8;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.up-next-title {
+  font-size: 14px;
+  color: #aaa;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.playlist-item:hover, .playlist-item.active {
+  background-color: #ffe3ed;
+}
+
+.playlist-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.track-num {
+  font-weight: 600;
+  color: #333;
+  width: 14px;
+}
+
+.track-info p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.track-info span {
+  font-size: 12px;
+  color: #777;
+}
+
+.playlist-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.track-duration {
+  font-size: 13px;
+  color: #555;
+}
+
+.item-play-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ff91c4;
+  color: white;
+  border: none;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .player-body { flex-direction: column; }
+  .now-playing { flex-direction: column; text-align: center; }
+  .view-all-btn { align-self: center; }
+}
+
+
+.card-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+
+.video-player-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 16px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #000;
+}
+
+.custom-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons-wrapper {
+  display: flex;
+  flex-direction: row; /* จัดไอคอนเรียงแนวนอน */
+  align-items: center;
+  justify-content: center;
+  gap: 16px; /* ระยะห่างระหว่างไอคอน */
+}
+
+.social-icons {
+  width: 24px; /* ขนาดไอคอน */
+  height: auto;
+  display: block;
+}
